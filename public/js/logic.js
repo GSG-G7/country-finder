@@ -1,11 +1,13 @@
-const getResultArr = (res,inp) =>{
+const getResultArr = (res,input) =>{
     const countryName =[];
+    if(!input.value){
+        return ;
+    }
     res.forEach((element)=> {
-        if(element.name.toUpperCase().search(inp.toUpperCase())===0){
+        if(element.name.toUpperCase().search(input.toUpperCase())===0){
             countryName.push (element.name); 
         }
     });
-    console.log(countryName, '************');
     return countryName;
 }
 
