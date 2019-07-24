@@ -2,7 +2,7 @@
   "name": "country-finder",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "directories": {
     "test": "test"
   },
@@ -14,14 +14,13 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "nodemon": "^1.19.1"
-  },
+  "dependencies": {},
   "devDependencies": {
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.2.0",
     "eslint-plugin-import": "^2.18.2",
     "tap-spec": "^5.0.0",
-    "tape": "^4.11.0"
+    "tape": "^4.11.0",
+    "nodemon": "^1.19.1"
   }
 }
