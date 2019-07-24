@@ -1,4 +1,3 @@
-// const getResultArr = require('/');
 const input = document.querySelector('#input');
 const form =document.querySelector('#search-button');
 const divList =document.querySelector('#list')
@@ -78,8 +77,6 @@ const displayData = (result)=> {
         if(element.name.toUpperCase() === input.value.toUpperCase()){
             name.textContent = element.name;
             code.textContent = element.code;
-        }else{
-            name.textContent = `Enter valid country name`;
         }
     });
 }
