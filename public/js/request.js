@@ -1,15 +1,4 @@
-// const getResultArr = require('/');
-const input = document.querySelector('#input');
-const form =document.querySelector('#search-button');
-const divList =document.querySelector('#list')
-const submit = document.querySelector('#submit');
-const creatElement = (ele) => {
-    return document.createElement(ele);
-}
-const appendElement = (parent,child) => {
-    return parent.appendChild(child);
-}
-const makeRequest = (url, render,handleError) => {
+const makeRequest = (url,callback,handleError) => {
     let xhr = new XMLHttpRequest();
     xhr.onreadystatechange = () => {
         if(xhr.readyState === 4 ) {
@@ -29,11 +18,15 @@ const makeRequest = (url, render,handleError) => {
                        
                     }
                 });
-               
+                const cuntryList = creatElement("ul");
+                cuntryList.className = 'list__ul';
                 countryName.forEach(element => {
-                    
-                    const cuntryList = creatElement("ul");
                     const cuntryItem = creatElement("li");
+                    cuntryItem.className = 'list__ul__li'
+                    cuntryItem.addEventListener('click',(e)=>{
+                        console.log(event.target.textContent)
+                        input.value = event.target.textContent;
+                                        })
                     cuntryList.style.listStyleType = 'none';
                     cuntryItem.textContent = element ;
                     appendElement(cuntryList,cuntryItem);
@@ -52,27 +45,18 @@ const makeRequest = (url, render,handleError) => {
 const handleError = (error) => {
     const errorSpan = document.createElement('span');
     errorSpan.textContent = error || 'Erorr response not completed';
-    document.querySelector('#container').appendChild(errorSpan);
+   container.appendChild(errorSpan);
     
-}
-const render = (result)=>{
-    const getResultArr = (res,inp) =>{
-        const countryName =[];
-        res.forEach((element)=> {
-            if(element.name.toUpperCase().search(inp.toUpperCase())===0){
-                countryName.push (element.name); 
-            }
-        });
-        console.log(countryName, '************');
-        return countryName;
-    }
-    
-    getResultArr(result,input.value);
-}
+};
+
 input.addEventListener('input' ,(e)=>{
     divList.textContent = '';
-    makeRequest("http://localhost:3000/data",render,handleError);
+    makeRequest("/data",autoComplete,handleError);
 
 });
+submit.addEventListener('click', (e)=> {
+    e.preventDefault();
+    makeRequest("/data",displayData,handleError);
+});
 
-module.exports = getResultArr;
+ 
