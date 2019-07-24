@@ -1,3 +1,4 @@
+// const getResultArr = require('/');
 const input = document.querySelector('#input');
 const form =document.querySelector('#search-button');
 const divList =document.querySelector('#list')
@@ -10,7 +11,6 @@ const appendElement = (parent,child) => {
 }
 const makeRequest = (url, render,handleError) => {
     let xhr = new XMLHttpRequest();
-
     xhr.onreadystatechange = () => {
         if(xhr.readyState === 4 ) {
             if(xhr.status !== 200){
@@ -48,33 +48,31 @@ const makeRequest = (url, render,handleError) => {
     } 
         xhr.open('GET',url);
          xhr.send();
-} ;
-  
-
+};
 const handleError = (error) => {
     const errorSpan = document.createElement('span');
     errorSpan.textContent = error || 'Erorr response not completed';
     document.querySelector('#container').appendChild(errorSpan);
     
 }
-const render = (result, item)=>{
-    // result.forEach(ele=> {
-    //     if(ele.name === item){
-    //         const countryName1 = creatElement('p');
-    //         const countryId = creatElement('p');
-    //         countryName1.textContent = ele.name;
-    //         countryId.textContent = ele.code;
-    //         appendElement(form, countryId);
-    //         appendElement(form, countryName1);
-    //     }
-    // })
+const render = (result)=>{
+    const getResultArr = (res,inp) =>{
+        const countryName =[];
+        res.forEach((element)=> {
+            if(element.name.toUpperCase().search(inp.toUpperCase())===0){
+                countryName.push (element.name); 
+            }
+        });
+        console.log(countryName, '************');
+        return countryName;
+    }
+    
+    getResultArr(result,input.value);
 }
 input.addEventListener('input' ,(e)=>{
     divList.textContent = '';
     makeRequest("http://localhost:3000/data",render,handleError);
 
 });
-// submit.addEventListener('click', (e)=> {
-//     render(result, item);
-    
-// })
+
+module.exports = getResultArr;
