@@ -29,11 +29,15 @@ const makeRequest = (url, render,handleError) => {
                        
                     }
                 });
-               
+                const cuntryList = creatElement("ul");
+                cuntryList.className = 'list__ul';
                 countryName.forEach(element => {
-                    
-                    const cuntryList = creatElement("ul");
                     const cuntryItem = creatElement("li");
+                    cuntryItem.className = 'list__ul__li'
+                    cuntryItem.addEventListener('click',(e)=>{
+                        console.log(event.target.textContent)
+                        input.value = event.target.textContent;
+                                        })
                     cuntryList.style.listStyleType = 'none';
                     cuntryItem.textContent = element ;
                     appendElement(cuntryList,cuntryItem);
@@ -74,5 +78,4 @@ input.addEventListener('input' ,(e)=>{
     makeRequest("http://localhost:3000/data",render,handleError);
 
 });
-
 module.exports = getResultArr;
