@@ -13,7 +13,7 @@ const makeRequest = (url, callback) => {
 
 input.addEventListener('input',(e) => {
     makeRequest('/data.json',res=>{
-        // console.log(res);
+        console.log(res);
     })
 // console.log(input.value);
 })
