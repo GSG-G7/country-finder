@@ -24,3 +24,16 @@ const handleError = (error) => {
     document.querySelector('#container').appendChild(errorSpan);
     
 }
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
