@@ -1,4 +1,3 @@
-// const getResultArr = require('/');
 const input = document.querySelector('#input');
 const form =document.querySelector('#search-button');
 const divList =document.querySelector('#list')
@@ -56,17 +55,6 @@ const handleError = (error) => {
     
 }
 const render = (result)=>{
-    const getResultArr = (res,inp) =>{
-        const countryName =[];
-        res.forEach((element)=> {
-            if(element.name.toUpperCase().search(inp.toUpperCase())===0){
-                countryName.push (element.name); 
-            }
-        });
-        console.log(countryName, '************');
-        return countryName;
-    }
-    
     getResultArr(result,input.value);
 }
 input.addEventListener('input' ,(e)=>{
@@ -75,4 +63,4 @@ input.addEventListener('input' ,(e)=>{
 
 });
 
-module.exports = getResultArr;
+
