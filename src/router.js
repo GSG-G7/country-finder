@@ -31,7 +31,7 @@ const router = (request, response) => {
             }
         })
 
-    }else if (endpoint === "/data.json") {
+    }else if (endpoint === "/data") {
         const filePath = path.join(__dirname, "data.json");
         fs.readFile(filePath, (error, data) => {
             if (error) {
