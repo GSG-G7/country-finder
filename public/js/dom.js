@@ -1,8 +1,3 @@
-const input = document.querySelector('#input');
-const form =document.querySelector('#search-button');
-const divList =document.querySelector('#list')
-const submit = document.querySelector('#submit');
-const container = document.querySelector('#container');
 
 let selector = select => {
     return document.querySelector(select);
@@ -13,17 +8,18 @@ const creatElement = (ele) => {
 const appendElement = (parent,child) => {
     return parent.appendChild(child);
 }
+const input = selector('#input');
+const form = selector('#search-button');
+const divList = selector('#list')
+const submit = selector('#submit');
+const container = selector('#container');
 const name = creatElement('h1');
 const code = creatElement('h2');
 appendElement(container, name);
 appendElement(container, code);
 
 const autoComplete = (result)=> {
-
     const countryName = getResultArr(result,input.value);
-       
-        
-       
         countryName.forEach(element => {
             const cuntryList = creatElement("ul");
             const cuntryItem = creatElement("li");
