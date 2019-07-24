@@ -1,4 +1,5 @@
 const test = require('tape');
+const autocomplete = require('../public/js/logic')
 const countriesArr = [
     {
         "name": "Afghanistan",
@@ -41,10 +42,6 @@ const countriesArr = [
 test('Autocomplete test function', (t)=>{
     const actual = autocomplete(countriesArr, 'a');
     const expected = ['Afghanistan', 'Albania', 'Algeria'];
-
-    t.equal(actual, expected, '');
+    t.deepEqual(actual, expected, '');
     t.end();
-
-
-
 })
