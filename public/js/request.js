@@ -7,10 +7,36 @@ const makeRequest = (url,callback,handleError) => {
             }
             if(xhr.getResponseHeader('Content-type').includes('json')){
                 let responseData = JSON.parse(xhr.responseText);
-                callback(responseData) ;
-            } else {
-                handleError('Error not Json') ;
-            } 
+                const countryName =[];
+                if(!input.value){
+                    divList.textContent = '';
+                    return ;
+                }
+                responseData.forEach((element)=> {
+                    if(element.name.toUpperCase().search(input.value.toUpperCase())===0){
+                        countryName.push (element.name); 
+                       
+                    }
+                });
+                const cuntryList = creatElement("ul");
+                cuntryList.className = 'list__ul';
+                countryName.forEach(element => {
+                    const cuntryItem = creatElement("li");
+                    cuntryItem.className = 'list__ul__li'
+                    cuntryItem.addEventListener('click',(e)=>{
+                        console.log(event.target.textContent)
+                        input.value = event.target.textContent;
+                                        })
+                    cuntryList.style.listStyleType = 'none';
+                    cuntryItem.textContent = element ;
+                    appendElement(cuntryList,cuntryItem);
+                    appendElement(divList , cuntryList);
+                   
+
+                });
+                return render(responseData, countryName[0]);
+
+            } handleError('Error not Json') ;   
         }
     } 
         xhr.open('GET',url);

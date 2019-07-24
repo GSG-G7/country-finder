@@ -1,0 +1,173 @@
+body{
+    background: url('https://www.commendabletravel.com/wp-content/uploads/2014/09/Cape-Town-Harbour-home-slider.jpg') no-repeat fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+*{
+    box-sizing: border-box;
+}
+*:focus{
+    outline: none;
+}
+.overlay{
+    background-color: rgba(0, 0, 0, .75);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* ================== Start the header ================== */
+.overlay__h1{
+    margin: 0;
+    width: 50%;
+    margin: 40px auto;
+    text-align: center;
+    color: #fff;
+    font-size: 2.5rem;
+    border: 3px solid #ccc;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: rgba(256, 256, 256, .2);
+}
+/* ================== End the header ================== */
+/* ================== Start The Form ================== */
+.overlay__form{
+width: 80%;
+margin: 20px auto 0 auto;
+display: flex;
+justify-content: space-between;
+padding: 20px;
+position: relative;
+overflow: hidden;
+border-radius: 10px;
+
+}
+
+.overlay__form__input{
+    min-width: 82%;
+    padding: 10px 20px;
+    min-height: 50px;
+    border: 1px solid transparent;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.overlay__form__search{
+    min-width: 10%;
+    padding: 0 10px;
+    min-height: 50px;
+    border: 3px solid transparent;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all .4s ease-in-out;
+    font-weight: bold;
+    color: #0c2461;
+    background-color: #82ccdd
+}
+.overlay__form__search:hover{
+    background-color: #0c2461;
+    border: 3px solid #82ccdd;
+    color: #82ccdd
+}
+
+/* -------------- Start the Hover & Animation -------------- */
+.overlay__form__top{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 0;
+    height: 4px;
+    background-color: #82ccdd;
+    transition: all .3s ease;
+}
+
+.overlay__form__right{
+    position: absolute;
+    top: 50%;
+    right:0;
+    width: 4px;
+    height: 0;
+    background-color: #82ccdd;
+    transition: all .3s ease;
+}
+
+.overlay__form__bottom{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 4px;
+    background-color: #82ccdd;
+    transition: all .3s ease;
+}
+
+.overlay__form__left{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 4px;
+    height: 0;
+    background-color: #82ccdd;
+    transition: all .3s ease;
+}
+
+.overlay__form:hover .overlay__form__top, .overlay__form:hover .overlay__form__bottom{
+    width: 100%;
+    transform: translate(-50%);
+
+}
+.overlay__form:hover .overlay__form__right, .overlay__form:hover .overlay__form__left{
+    height: 100%;
+    transform: translateY(-50%);
+
+}
+/* -------------- Start the Hover & Animation -------------- */
+/* ================== End The Form ================== */
+/* ================== Start The list for display the name country ================== */
+.list{
+    width: 80%;
+    background-color: #82ccdd;
+    margin: 10px auto;
+    color: #0c2461;
+    font-weight: bold;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.list__ul{
+    padding: 0
+}
+
+.list__ul__li{
+    width: 100%;
+    margin: 0;
+    cursor: pointer;
+    padding: 10px;
+    transition: all .5s ease;
+}
+.list__ul__li:hover{
+    color:#82ccdd;
+    background-color: #0c2461;
+}
+/* ================== End The list for display the name country ================== */
+/* ================== Start The Responsive ================== */
+@media (max-width: 768px) { 
+    .overlay__h1{
+        width:90%;
+    }
+
+    .overlay__form{
+        width: calc(90% + 35px);
+    }
+
+
+ }
+/* ================== Start The Responsive ================== */
+
+
+
