@@ -1,15 +1,25 @@
-const input = document.querySelector('.input-text');
+const input = document.querySelector('#input');
 
 const makeRequest = (url, render,handleError) => {
     let xhr = new XMLHttpRequest();
+    console.log(xhr);
+    console.log(url)
     xhr.onreadystatechange = () => {
         if(xhr.readyState === 4 ) {
             if(xhr.status !== 200){
                 return handleError(xhr.statusText);
             }
-
             if(xhr.getResponseHeader('Content-type').includes('json')){
-                return render(JSON.parse(xhr.responseText));
+                let responseData = JSON.parse(xhr.responseText);
+                const countryName =[];
+                responseData.forEach((element)=> {
+                    if(element.name.toUpperCase().search(input.value.toUpperCase())===0){
+                        countryName.push (element.name); 
+                    }
+                });
+                console.log(countryName, '************');
+                return render(countryName[0]);
+
             } handleError('Error not Json') ;   
         }
     } 
@@ -24,3 +34,9 @@ const handleError = (error) => {
     document.querySelector('#container').appendChild(errorSpan);
     
 }
+const render = (result)=>{
+}
+input.addEventListener('input' ,(e)=>{
+    makeRequest("http://localhost:3000/data",render,handleError);
+
+});
