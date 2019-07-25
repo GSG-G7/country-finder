@@ -21,7 +21,11 @@ appendElement(container, name);
 appendElement(container, code);
 
 const autoComplete = (results)=> {
-    const filteredNames = getResultArr(results,input);
+    
+    const filteredNames = getResultArr(results,input.value);
+    if(!input.value.trim()) {
+        return; 
+    }
     filteredNames.forEach(element => {
     const cuntryList = creatElement("ul");    
     cuntryList.className = 'list__ul';
