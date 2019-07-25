@@ -20,7 +20,7 @@ We work as a pair and each pair complete all stages of the project that as follo
 * make our server read data from other files : (html, css, js).
 * Get the required data and apply autoComplete-function that show all suggestions of the entered characters.
 * finally, we get information about the required country that the user finally choosed it.
-* Deploy our repository on heroku.
+* Deploy our repository on heroku [country finder](https://cuontry.herokuapp.com/).
 
 # User Journey:
 The user can add his favourite country in the search field then click on the search button to get information about the country he entered
