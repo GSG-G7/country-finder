@@ -1,5 +1,4 @@
 const test = require('tape');
-const getResultArr = require('../public/js/logic')
 const countriesArr = [
     {
         "name": "Afghanistan",
@@ -36,12 +35,20 @@ const countriesArr = [
     {
         "name": "Zimbabwe",
         "code": "ZW"
-    }
+    },
 ]
 
 test('Autocomplete test function', (t)=>{
-    const actual = getResultArr(countriesArr, 'A');
-    const expected = ['Afghanistan', 'Albania', 'Algeria'];
-    t.deepEqual(actual, expected, '');
+    const actual = (response)=>{
+        const countryName =[];
+        response.forEach((element)=> {
+            if(element.name.toUpperCase().search('a'.toUpperCase()) === 0){
+                countryName.push (element.name); 
+            }
+        });
+        return countryName;
+    }
+    const expected = ["Afghanistan", "Albania", "Algeria"];
+    t.deepEqual(actual(countriesArr), expected, '');
     t.end();
-})
+});

@@ -1,10 +1,10 @@
-const getResultArr = (res,input) =>{
+const getResultArr = (response,text)=>{
     const countryName =[];
-    if(!input.value){
-        return ;
+    if(!text.value){
+        return;
     }
-    res.forEach((element)=> {
-        if(element.name.toUpperCase().search(input.toUpperCase())===0){
+    response.forEach((element)=> {
+        if(element.name.toUpperCase().search(text.value.toUpperCase()) === 0){
             countryName.push (element.name); 
         }
     });

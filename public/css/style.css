@@ -1,4 +1,5 @@
-body{
+
+ body{
     background: url('https://www.commendabletravel.com/wp-content/uploads/2014/09/Cape-Town-Harbour-home-slider.jpg') no-repeat fixed;
     background-size: cover;
     margin: 0;
@@ -7,6 +8,7 @@ body{
 }
 *{
     box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
 }
 *:focus{
     outline: none;
@@ -28,10 +30,12 @@ body{
     text-align: center;
     color: #fff;
     font-size: 2.5rem;
-    border: 3px solid #ccc;
+    border: 4px solid #ccc;
     padding: 10px;
     border-radius: 8px;
-    background-color: rgba(256, 256, 256, .2);
+    /* background-color: rgba(256, 256, 256, .2); */
+    background: linear-gradient(to bottom right,#0c2461 0%, #82ccdd 50%, #0c2461 100%);
+    animation: coloring 2s ease-in-out infinite;
 }
 /* ================== End the header ================== */
 /* ================== Start The Form ================== */
@@ -55,6 +59,7 @@ border-radius: 10px;
     border-radius: 50px;
     font-size: 1.2rem;
     font-weight: bold;
+    background-color: rgba(256, 256, 256, .8)
 }
 
 .overlay__form__search{
@@ -83,7 +88,7 @@ border-radius: 10px;
     width: 0;
     height: 4px;
     background-color: #82ccdd;
-    transition: all .3s ease;
+    transition: all .5s ease;
 }
 
 .overlay__form__right{
@@ -93,7 +98,7 @@ border-radius: 10px;
     width: 4px;
     height: 0;
     background-color: #82ccdd;
-    transition: all .3s ease;
+    transition: all .5s ease;
 }
 
 .overlay__form__bottom{
@@ -103,7 +108,7 @@ border-radius: 10px;
     width: 0;
     height: 4px;
     background-color: #82ccdd;
-    transition: all .3s ease;
+    transition: all .5s ease;
 }
 
 .overlay__form__left{
@@ -113,19 +118,31 @@ border-radius: 10px;
     width: 4px;
     height: 0;
     background-color: #82ccdd;
-    transition: all .3s ease;
+    transition: all .5s ease;
 }
 
-.overlay__form:hover .overlay__form__top, .overlay__form:hover .overlay__form__bottom{
-    width: 100%;
-    transform: translate(-50%);
-
+.overlay__form__auto{
+    position: absolute;
+    top: 32px;
+    left:41px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: rgba(0, 0, 0, .5)
 }
-.overlay__form:hover .overlay__form__right, .overlay__form:hover .overlay__form__left{
-    height: 100%;
-    transform: translateY(-50%);
 
+@keyframes coloring{
+0%, 100%{
+    border-color:#006266;
 }
+25%{
+    border-color:#0652DD;
+}
+
+75%{
+    border-color:#5758BB;
+}
+}
+
 /* -------------- Start the Hover & Animation -------------- */
 /* ================== End The Form ================== */
 /* ================== Start The list for display the name country ================== */
@@ -168,6 +185,3 @@ border-radius: 10px;
 
  }
 /* ================== Start The Responsive ================== */
-
-
-
