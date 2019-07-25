@@ -1,4 +1,4 @@
-const handle = require('./handlerData')
+const handle = require('./handlers');
 
 const router = (request, response) => {
     const endpoint = request.url;

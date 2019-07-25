@@ -5,7 +5,8 @@ const handleHome = (request,response) => {
     const homePath = path.join(__dirname, '..','public','index.html')
     fs.readFile(homePath,(error,file) => {
         if(error){
-            console.log(error);
+            response.writeHead(404,{'Content-Type':'text/html'});
+            response.end("servser-error");
         }else{
             response.writeHead(200,{'Content-Type':'text/html'})
             response.end(file);
@@ -23,7 +24,8 @@ const handlePages = (request,response) => {
         }
         fs.readFile(filePath,(error,file) => {
             if(error){
-                console.log(error);
+                response.writeHead(404,{'Content-Type':'text/html'});
+                response.end("servser-error");
             }else {
                 response.writeHead(200,{'Content-Type': obj[ext] });
                 response.end(file);
@@ -35,7 +37,8 @@ const handleData = (request,response) => {
     const filePath = path.join(__dirname, "data.json");
         fs.readFile(filePath, (error, data) => {
             if (error) {
-                console.log(error);
+                response.writeHead(404,{'Content-Type':'text/html'});
+                response.end("servser-error");
             } else {
                 response.writeHead(200, { "Content-Type": "application/json" });
                 response.end(data);
